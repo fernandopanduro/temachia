@@ -2,12 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import { ClosedIcon } from "./components/Icons";
 import { InputSend } from "./components/InputSend/InputSend";
-import { MessageIA } from "./components/MessageIA/MessageIA";
-import { MessageUser } from "./components/MessageUser/MessageUser";
 import { ListSuggestionBox } from "./layout/ListSuggestionBox/ListSuggestionBox";
 
 function App() {
-  const isMessage = true;
+  const isMessage = false;
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -180,8 +178,8 @@ function App() {
 
         <div className="w-full flex flex-col justify-between relative max-w-full flex-1">
           <div className="text-white flex flex-col text-sm dark:bg-gray-800">
-            <MessageUser />
-            <MessageIA />
+            {/* <MessageUser />
+            <MessageIA /> */}
           </div>
 
           <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference">

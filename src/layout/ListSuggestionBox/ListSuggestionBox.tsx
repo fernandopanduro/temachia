@@ -8,24 +8,32 @@ export const ListSuggestionBox = () => {
           <div className="absolute bottom-full left-0 mb-4 flex w-full grow gap-2 px-1 pb-1 sm:px-2 sm:pb-0 md:static md:mb-0 md:max-w-none">
             <div className="grid w-full grid-flow-row grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-3">
               <div className="flex flex-col gap-3">
-                <SuggestionBox
-                  title="Create a charter"
-                  text=" to start a film club"
-                />
-                <SuggestionBox
-                  title="Brainstorm names"
-                  text="for an orange cat we're adopting from the shelter"
-                />
+                <div className="opacity-0 animate-[wiggle_700ms_ease-in-out_200ms_forwards]">
+                  <SuggestionBox
+                    title="Create a charter"
+                    text=" to start a film club"
+                  />
+                </div>
+                <div className="opacity-0 animate-[wiggle_700ms_ease-in-out_500ms_forwards]">
+                  <SuggestionBox
+                    title="Brainstorm names"
+                    text="for an orange cat we're adopting from the shelter"
+                  />
+                </div>
               </div>
               <div className="flex flex-col gap-3">
-                <SuggestionBox
-                  title="Write an email"
-                  text="requesting a deadline extension for my project"
-                />
-                <SuggestionBox
-                  title="Help me pick"
-                  text="a birthday gift for my mom who likes gardening"
-                />
+                <div className="opacity-0 animate-[wiggle_700ms_ease-in-out_500ms_forwards]">
+                  <SuggestionBox
+                    title="Write an email"
+                    text="requesting a deadline extension for my project"
+                  />
+                </div>
+                <div className="opacity-0 animate-[wiggle_700ms_ease-in-out_800ms_forwards]">
+                  <SuggestionBox
+                    title="Help me pick"
+                    text="a birthday gift for my mom who likes gardening"
+                  />
+                </div>
               </div>
             </div>
           </div>
