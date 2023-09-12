@@ -36,119 +36,14 @@ export const MessageIA = () => {
               <div className="min-h-[20px] flex flex-col items-start gap-3 overflow-x-auto whitespace-pre-wrap break-words">
                 <div className="markdown prose w-full break-words dark:prose-invert light">
                   <p>
-                    Creating a content calendar for a TikTok account focused on
-                    reviewing real estate listings involves planning a variety
-                    of engaging and informative videos to attract and engage
-                    your audience. Here's a sample content calendar for a month:
-                  </p>
-                  <p>
-                    <strong>Week 1: Introduction and Overview</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Day 1</strong>: Introduction video - Introduce
-                      yourself and your passion for real estate listings.
-                    </li>
-                    <li>
-                      <strong>Day 3</strong>: "What to Expect" video - Explain
-                      the types of content you'll be sharing and your reviewing
-                      criteria.
-                    </li>
-                    <li>
-                      <strong>Day 5</strong>: Spotlight on your favorite real
-                      estate listing - Share your all-time favorite listing and
-                      why you love it.
-                    </li>
-                    <li>
-                      <strong>Day 7</strong>: Q&amp;A session - Ask your
-                      audience for questions and answer some of them in a video.
-                    </li>
-                  </ul>
-                  <p>
                     <strong>Week 2: Property Reviews</strong>
                   </p>
-                  <ul>
-                    <li>
-                      <strong>Day 1</strong>: First property review - Select a
-                      unique and interesting real estate listing to review in
-                      detail.
-                    </li>
-                    <li>
-                      <strong>Day 3</strong>: Tips for first-time homebuyers -
-                      Share tips and advice for those looking to buy their first
-                      home.
-                    </li>
-                    <li>
-                      <strong>Day 5</strong>: "Behind the Scenes" video - Show
-                      the process of how you choose properties to review.
-                    </li>
-                    <li>
-                      <strong>Day 7</strong>: Quick property tour - Provide a
-                      brief tour of a property with notable features.
-                    </li>
-                  </ul>
-                  <p>
-                    <strong>Week 3: Local Real Estate</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Day 1</strong>: Local market update - Share
-                      statistics and trends in your local real estate market.
-                    </li>
-                    <li>
-                      <strong>Day 3</strong>: Interview a local real estate
-                      agent - Ask them about their experiences and tips for
-                      buyers.
-                    </li>
-                    <li>
-                      <strong>Day 5</strong>: Showcase a luxury property -
-                      Review a high-end property for some aspirational content.
-                    </li>
-                    <li>
-                      <strong>Day 7</strong>: "Day in the Life" video - Share a
-                      glimpse of your daily routine as a real estate enthusiast.
-                    </li>
-                  </ul>
                   <p>
                     <strong>Week 4: Audience Engagement</strong>
                   </p>
-                  <ul>
-                    <li>
-                      <strong>Day 1</strong>: Respond to comments - Interact
-                      with your audience by responding to their comments and
-                      questions.
-                    </li>
-                    <li>
-                      <strong>Day 3</strong>: "Common Mistakes" video - Discuss
-                      common mistakes people make when buying or selling real
-                      estate.
-                    </li>
-                    <li>
-                      <strong>Day 5</strong>: User-submitted property review -
-                      Review a property suggested by one of your followers.
-                    </li>
-                    <li>
-                      <strong>Day 7</strong>: "Ask Me Anything" - Host a live
-                      Q&amp;A session to engage with your audience in real-time.
-                    </li>
-                  </ul>
                   <p>
                     <strong>Bonus Content Ideas Throughout the Month</strong>:
                   </p>
-                  <ul>
-                    <li>Real estate market news updates.</li>
-                    <li>
-                      Comparison videos: Compare two or more real estate
-                      listings.
-                    </li>
-                    <li>Budget-friendly listings for first-time buyers.</li>
-                    <li>Tips for home staging and decorating.</li>
-                    <li>"Before and After" transformations of properties.</li>
-                    <li>
-                      Collaborate with other TikTok creators or real estate
-                      professionals for joint videos.
-                    </li>
-                  </ul>
                   <p>
                     Remember to use relevant hashtags, engage with your
                     audience, and monitor your analytics to fine-tune your

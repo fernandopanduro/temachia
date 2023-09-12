@@ -5,7 +5,7 @@ export const SendIcon = () => {
       viewBox="0 0 16 16"
       fill="none"
       className="h-4 w-4 m-1 md:m-0"
-      stroke-width="2">
+      strokeWidth="2">
       <path
         d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z"
         fill="currentColor"></path>
@@ -18,10 +18,10 @@ export const ClipboardIcon = () => {
     <svg
       stroke="currentColor"
       fill="none"
-      stroke-width="2"
+      strokeWidth="2"
       viewBox="0 0 24 24"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="h-4 w-4"
       height="1em"
       width="1em"
@@ -37,10 +37,10 @@ export const LikeIcon = () => {
     <svg
       stroke="currentColor"
       fill="none"
-      stroke-width="2"
+      strokeWidth="2"
       viewBox="0 0 24 24"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="h-4 w-4"
       height="1em"
       width="1em"
@@ -55,10 +55,10 @@ export const UnlikeIcon = () => {
     <svg
       stroke="currentColor"
       fill="none"
-      stroke-width="2"
+      strokeWidth="2"
       viewBox="0 0 24 24"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="h-4 w-4"
       height="1em"
       width="1em"
@@ -73,15 +73,34 @@ export const EditIcon = () => {
     <svg
       stroke="currentColor"
       fill="none"
-      stroke-width="1.5"
+      strokeWidth="1.5"
       viewBox="0 0 24 24"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="h-3 w-3"
       height="1em"
       width="1em"
       xmlns="http://www.w3.org/2000/svg">
       <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  );
+};
+
+export const ClosedIcon = () => {
+  return (
+    <svg
+      stroke="currentColor"
+      fill="none"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="9" y1="3" x2="9" y2="21"></line>
     </svg>
   );
 };

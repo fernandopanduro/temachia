@@ -1,4 +1,6 @@
+import { useState } from "react";
 import "./App.css";
+import { ClosedIcon } from "./components/Icons";
 import { InputSend } from "./components/InputSend/InputSend";
 import { MessageIA } from "./components/MessageIA/MessageIA";
 import { MessageUser } from "./components/MessageUser/MessageUser";
@@ -7,28 +9,32 @@ import { ListSuggestionBox } from "./layout/ListSuggestionBox/ListSuggestionBox"
 function App() {
   const isMessage = true;
 
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
-    <div className="w-full h-full relative flex z-0">
+    <div className="w-full h-full relative flex z-0 bg-gray-800">
       <div
-        className="dark flex-shrink-0 bg-gray-900"
-        data-projection-id="43"
-        style={{ width: "260px", visibility: "visible" }}>
-        <div className="h-full w-[260px]">
+        className="dark flex-shrink-0 h-screen bg-gray-900 absolute md:sticky top-0 z-50 transition-all"
+        style={
+          showMenu
+            ? { width: "260px", visibility: "visible" }
+            : { width: "0", visibility: "hidden" }
+        }>
+        <div className="h-full">
           <div className="flex h-full min-h-0 flex-col ">
             <div className="scrollbar-trigger relative h-full w-full flex-1 items-start border-white/20">
-              <h2>Chat history</h2>
               <nav
-                className="flex h-full w-full flex-col p-2"
+                className="flex h-full w-full flex-col p-4"
                 aria-label="Chat history">
                 <div className="mb-1 flex flex-row gap-2">
                   <a className="flex px-3 min-h-[44px] py-1 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 h-11 flex-grow overflow-hidden">
                     <svg
                       stroke="currentColor"
                       fill="none"
-                      stroke-width="2"
+                      strokeWidth="2"
                       viewBox="0 0 24 24"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="h-4 w-4 shrink-0"
                       height="1em"
                       width="1em"
@@ -38,76 +44,13 @@ function App() {
                     </svg>
                     <span className="truncate">New chat</span>
                   </a>
-                  <span className="" data-state="closed">
-                    <a className="flex px-3 min-h-[44px] py-1 gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 h-11 w-11 flex-shrink-0 items-center justify-center">
-                      <svg
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="h-4 w-4"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect
-                          x="3"
-                          y="3"
-                          width="18"
-                          height="18"
-                          rx="2"
-                          ry="2"></rect>
-                        <line x1="9" y1="3" x2="9" y2="21"></line>
-                      </svg>
-                      <span>Close sidebar</span>
-                    </a>
-                  </span>
+                  <a
+                    onClick={() => setShowMenu(!showMenu)}
+                    className="flex px-3 min-h-[44px] py-1 gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 h-11 w-11 flex-shrink-0 items-center justify-center">
+                    <ClosedIcon />
+                  </a>
                 </div>
-                <div className="absolute left-0 top-14 z-20 overflow-hidden transition-all duration-500 invisible max-h-0">
-                  <div className="bg-gray-900 px-4 py-3">
-                    <div className="p-1 text-sm text-gray-100">
-                      Chat History is off for this browser.
-                    </div>
-                    <div className="p-1 text-xs text-gray-500">
-                      When history is turned off, new chats on this browser
-                      won't appear in your history on any of your devices, be
-                      used to train our models, or stored for longer than 30
-                      days.{" "}
-                      <strong>
-                        This setting does not sync across browsers or devices.
-                      </strong>{" "}
-                      <a
-                        href="https://help.openai.com/en/articles/7730893"
-                        target="_blank"
-                        className="underline"
-                        rel="noreferrer">
-                        Learn more
-                      </a>
-                    </div>
-                    <button className="btn relative btn-primary mt-4 w-full">
-                      <div className="flex w-full gap-2 items-center justify-center">
-                        <svg
-                          stroke="currentColor"
-                          fill="none"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          className="h-4 w-4"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
-                          <line x1="12" y1="2" x2="12" y2="12"></line>
-                        </svg>
-                        Enable chat history
-                      </div>
-                    </button>
-                  </div>
-                  <div className="h-24 bg-gradient-to-t from-gray-900/0 to-gray-900"></div>
-                </div>
-                <div className="flex-col flex-1 transition-opacity duration-500 overflow-y-auto">
+                <div className="flex-col flex-1 transition-opacity duration-500 overflow-y-auto ">
                   <div className="flex flex-col gap-2 pb-2 text-gray-100 text-sm">
                     <div>
                       <span>
@@ -127,10 +70,10 @@ function App() {
                         <svg
                           stroke="currentColor"
                           fill="none"
-                          stroke-width="2"
+                          strokeWidth="2"
                           viewBox="0 0 24 24"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           className="h-4 w-4 shrink-0"
                           height="1em"
                           width="1em"
@@ -147,7 +90,7 @@ function App() {
                   </a>
                   <div className="group relative" data-headlessui-state="">
                     <button
-                      className="flex w-full items-center gap-3 rounded-md px-3 py-3 text-sm transition-colors duration-200 hover:bg-gray-800 group-ui-open:bg-gray-800"
+                      className="flex w-full items-center gap-3 rounded-md text-sm transition-colors duration-200 hover:bg-gray-800 group-ui-open:bg-gray-800"
                       type="button"
                       aria-haspopup="true"
                       aria-expanded="false"
@@ -174,21 +117,6 @@ function App() {
                         <div className="font-bold">Fernando Panduro</div>
                         <div className="text-xs text-gray-500"></div>
                       </div>
-                      <svg
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="h-4 w-4 flex-shrink-0 text-gray-500"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="1"></circle>
-                        <circle cx="19" cy="12" r="1"></circle>
-                        <circle cx="5" cy="12" r="1"></circle>
-                      </svg>
                     </button>
                   </div>
                 </div>
@@ -197,15 +125,70 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col justify-end relative h-full max-w-full flex-1 overflow-hidden">
-        <div className="text-white flex flex-col text-sm dark:bg-gray-800">
-          <MessageUser />
-          <MessageIA />
+      <div
+        onClick={() => setShowMenu(!showMenu)}
+        className="absolute left-2 top-2 z-10 hidden md:inline-block"
+        style={{ opacity: 1 }}>
+        <span className="" data-state="closed">
+          <button
+            aria-label="Open sidebar"
+            className="flex p-3 items-center gap-3 transition-colors duration-200 text-gray-600 dark:text-gray-200 cursor-pointer text-sm rounded-md bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 h-11">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4 text-black dark:text-white"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg>
+          </button>
+        </span>
+      </div>
+
+      <div className="w-full flex flex-col justify-between relative h-screen max-w-full flex-1 overflow-hidden">
+        <div className="sticky top-0 z-10 flex items-center border-b border-white/20 bg-gray-800 pl-1 pt-1 text-gray-200 sm:pl-3 md:hidden">
+          <button
+            onClick={() => setShowMenu(!showMenu)}
+            type="button"
+            className="-ml-0.5 -mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white dark:hover:text-white">
+            <span className="sr-only">Open sidebar</span>
+            <ClosedIcon />
+          </button>
+          <h1 className="flex-1 text-center text-base font-normal">New chat</h1>
+          <button type="button" className="px-3">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
         </div>
 
-        <div>
-          {isMessage ? "" : <ListSuggestionBox />}
-          <InputSend />
+        <div className="w-full flex flex-col justify-between relative h-screen max-w-full flex-1 overflow-hidden">
+          <div className="text-white flex flex-col text-sm dark:bg-gray-800">
+            <MessageUser />
+            <MessageIA />
+          </div>
+
+          <div>
+            {isMessage ? "" : <ListSuggestionBox />}
+            <InputSend />
+          </div>
         </div>
       </div>
     </div>
