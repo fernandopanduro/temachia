@@ -150,8 +150,7 @@ function App() {
           </button>
         </span>
       </div>
-
-      <div className="w-full flex flex-col justify-between relative h-screen max-w-full flex-1 overflow-hidden">
+      <div className="w-full flex flex-col justify-between relative max-w-full flex-1 ">
         <div className="sticky top-0 z-10 flex items-center border-b border-white/20 bg-gray-800 pl-1 pt-1 text-gray-200 sm:pl-3 md:hidden">
           <button
             onClick={() => setShowMenu(!showMenu)}
@@ -179,13 +178,17 @@ function App() {
           </button>
         </div>
 
-        <div className="w-full flex flex-col justify-between relative h-screen max-w-full flex-1 overflow-hidden">
+        <div className="w-full flex flex-col justify-between relative max-w-full flex-1">
           <div className="text-white flex flex-col text-sm dark:bg-gray-800">
             <MessageUser />
             <MessageIA />
           </div>
 
-          <div>
+          <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference">
+            Temach IA
+          </h1>
+
+          <div className="py-3 md:py-5 h-auto">
             {isMessage ? "" : <ListSuggestionBox />}
             <InputSend />
           </div>

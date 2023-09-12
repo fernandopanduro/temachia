@@ -51,6 +51,54 @@ export const MessageIA = () => {
                     calendar based on the feedback and preferences of your
                     TikTok followers.
                   </p>
+                  <p>
+                    <strong>Week 2: Property Reviews</strong>
+                  </p>
+                  <p>
+                    <strong>Week 4: Audience Engagement</strong>
+                  </p>
+                  <p>
+                    <strong>Bonus Content Ideas Throughout the Month</strong>:
+                  </p>
+                  <p>
+                    Remember to use relevant hashtags, engage with your
+                    audience, and monitor your analytics to fine-tune your
+                    content strategy as you go. Adapt and evolve your content
+                    calendar based on the feedback and preferences of your
+                    TikTok followers.
+                  </p>
+                  <p>
+                    <strong>Week 2: Property Reviews</strong>
+                  </p>
+                  <p>
+                    <strong>Week 4: Audience Engagement</strong>
+                  </p>
+                  <p>
+                    <strong>Bonus Content Ideas Throughout the Month</strong>:
+                  </p>
+                  <p>
+                    Remember to use relevant hashtags, engage with your
+                    audience, and monitor your analytics to fine-tune your
+                    content strategy as you go. Adapt and evolve your content
+                    calendar based on the feedback and preferences of your
+                    TikTok followers.
+                  </p>
+                  <p>
+                    <strong>Week 2: Property Reviews</strong>
+                  </p>
+                  <p>
+                    <strong>Week 4: Audience Engagement</strong>
+                  </p>
+                  <p>
+                    <strong>Bonus Content Ideas Throughout the Month</strong>:
+                  </p>
+                  <p>
+                    Remember to use relevant hashtags, engage with your
+                    audience, and monitor your analytics to fine-tune your
+                    content strategy as you go. Adapt and evolve your content
+                    calendar based on the feedback and preferences of your
+                    TikTok followers.
+                  </p>
                 </div>
               </div>
             </div>
