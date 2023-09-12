@@ -2,15 +2,17 @@ import { useState } from "react";
 import "./App.css";
 import { ClosedIcon } from "./components/Icons";
 import { InputSend } from "./components/InputSend/InputSend";
+import { ModalPay } from "./components/ModalPay/ModalPay";
 import { ListSuggestionBox } from "./layout/ListSuggestionBox/ListSuggestionBox";
 
 function App() {
   const isMessage = false;
 
   const [showMenu, setShowMenu] = useState(false);
+  const [showModalPay, setShowModalPay] = useState(true);
 
   return (
-    <div className="w-full h-full relative flex z-0 bg-gray-800">
+    <div className="w-full min-h-[100vh] relative flex z-0 bg-gray-800">
       <div
         className="dark flex-shrink-0 h-screen bg-gray-900 absolute md:sticky top-0 z-50 transition-all"
         style={
@@ -62,7 +64,9 @@ function App() {
                   </div>
                 </div>
                 <div className="border-t border-white/20 pt-2 empty:hidden">
-                  <a className="flex px-3 min-h-[44px] py-1 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm hover:bg-gray-800 rounded-md">
+                  <a
+                    onClick={() => setShowModalPay(!showModalPay)}
+                    className="flex px-3 min-h-[44px] py-1 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm hover:bg-gray-800 rounded-md">
                     <span className="flex w-full flex-row flex-wrap-reverse justify-between">
                       <span className="gold-new-button flex items-center gap-3">
                         <svg
@@ -192,6 +196,7 @@ function App() {
           </div>
         </div>
       </div>
+      <ModalPay showModalPay={showModalPay} setShowModalPay={setShowModalPay} />
     </div>
   );
 }
