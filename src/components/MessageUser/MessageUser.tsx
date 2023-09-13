@@ -1,6 +1,10 @@
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../utils/firebase";
 import { EditIcon } from "../Icons";
 
 export const MessageUser = ({ message }: { message: string }) => {
+  const [user, loading] = useAuthState(auth);
+  const photo = user?.photoURL;
   return (
     <div
       className="group w-full text-token-text-primary border-b border-black/10 dark:border-gray-900/50 dark:bg-gray-800"
@@ -18,7 +22,7 @@ export const MessageUser = ({ message }: { message: string }) => {
                   decoding="async"
                   data-nimg="1"
                   className="rounded-sm"
-                  src="/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FAAcHTtcgFf_sfkb0cwuPv01FUUSpZ5EZ0TPoWEaMQuAeAtl73PCl%3Ds96-c&w=96&q=75"
+                  src={photo}
                   style={{ color: "transparent" }}
                 />
               </div>

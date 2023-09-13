@@ -1,16 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { ClosedIcon } from "../../components/Icons";
 import { InputSend } from "../../components/InputSend/InputSend";
 import { MessageIA } from "../../components/MessageIA/MessageIA";
 import { MessageUser } from "../../components/MessageUser/MessageUser";
 import { ModalPay } from "../../components/ModalPay/ModalPay";
 import { ListSuggestionBox } from "../../layout/ListSuggestionBox/ListSuggestionBox";
+import { auth } from "../../utils/firebase";
 
 const Home = () => {
   const isMessage = false;
 
   const [showMenu, setShowMenu] = useState(false);
   const [showModalPay, setShowModalPay] = useState(false);
+
+  const [user, loading] = useAuthState(auth);
+
+  const photo = user?.photoURL;
+  const username = user?.displayName;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/auth/login");
+    } else {
+      console.log(user);
+    }
+  }, [user]);
 
   return (
     <div className="w-full min-h-[100vh] relative flex z-0 bg-gray-800">
@@ -109,17 +127,39 @@ const Home = () => {
                               decoding="async"
                               data-nimg="1"
                               className="rounded-sm"
-                              src="/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FAAcHTtcgFf_sfkb0cwuPv01FUUSpZ5EZ0TPoWEaMQuAeAtl73PCl%3Ds96-c&amp;w=96&amp;q=75"
+                              src={photo}
                             />
                           </div>
                         </div>
                       </div>
                       <div className="grow overflow-hidden text-ellipsis whitespace-nowrap text-left text-white">
-                        <div className="font-bold">Fernando Panduro</div>
+                        <div className="font-bold">{username}</div>
                         <div className="text-xs text-gray-500"></div>
                       </div>
                     </button>
                   </div>
+                  <a
+                    onClick={() => auth.signOut()}
+                    className="flex px-3 min-h-[44px] py-1 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm hover:bg-gray-800 rounded-md">
+                    <span className="flex w-full flex-row flex-wrap-reverse justify-between">
+                      <span className="gold-new-button flex items-center gap-3">
+                        <svg
+                          stroke="currentColor"
+                          fill="none"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-4 w-4 shrink-0"
+                          height="1em"
+                          width="1em">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Sign Out
+                      </span>
+                    </span>
+                  </a>
                 </div>
               </nav>
             </div>
