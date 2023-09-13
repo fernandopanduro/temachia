@@ -1,6 +1,6 @@
 import { ClipboardIcon, LikeIcon, UnlikeIcon } from "../Icons";
 
-export const MessageIA = () => {
+export const MessageIA = ({ response }: { response: string }) => {
   return (
     <div
       className="group w-full text-token-text-primary border-b border-black/10 dark:border-gray-900/50 bg-gray-50 dark:bg-[#444654]"
@@ -35,70 +35,7 @@ export const MessageIA = () => {
             <div className="flex flex-grow flex-col gap-3 max-w-full">
               <div className="min-h-[20px] flex flex-col items-start gap-3 overflow-x-auto whitespace-pre-wrap break-words">
                 <div className="markdown prose w-full break-words dark:prose-invert light">
-                  <p>
-                    <strong>Week 2: Property Reviews</strong>
-                  </p>
-                  <p>
-                    <strong>Week 4: Audience Engagement</strong>
-                  </p>
-                  <p>
-                    <strong>Bonus Content Ideas Throughout the Month</strong>:
-                  </p>
-                  <p>
-                    Remember to use relevant hashtags, engage with your
-                    audience, and monitor your analytics to fine-tune your
-                    content strategy as you go. Adapt and evolve your content
-                    calendar based on the feedback and preferences of your
-                    TikTok followers.
-                  </p>
-                  <p>
-                    <strong>Week 2: Property Reviews</strong>
-                  </p>
-                  <p>
-                    <strong>Week 4: Audience Engagement</strong>
-                  </p>
-                  <p>
-                    <strong>Bonus Content Ideas Throughout the Month</strong>:
-                  </p>
-                  <p>
-                    Remember to use relevant hashtags, engage with your
-                    audience, and monitor your analytics to fine-tune your
-                    content strategy as you go. Adapt and evolve your content
-                    calendar based on the feedback and preferences of your
-                    TikTok followers.
-                  </p>
-                  <p>
-                    <strong>Week 2: Property Reviews</strong>
-                  </p>
-                  <p>
-                    <strong>Week 4: Audience Engagement</strong>
-                  </p>
-                  <p>
-                    <strong>Bonus Content Ideas Throughout the Month</strong>:
-                  </p>
-                  <p>
-                    Remember to use relevant hashtags, engage with your
-                    audience, and monitor your analytics to fine-tune your
-                    content strategy as you go. Adapt and evolve your content
-                    calendar based on the feedback and preferences of your
-                    TikTok followers.
-                  </p>
-                  <p>
-                    <strong>Week 2: Property Reviews</strong>
-                  </p>
-                  <p>
-                    <strong>Week 4: Audience Engagement</strong>
-                  </p>
-                  <p>
-                    <strong>Bonus Content Ideas Throughout the Month</strong>:
-                  </p>
-                  <p>
-                    Remember to use relevant hashtags, engage with your
-                    audience, and monitor your analytics to fine-tune your
-                    content strategy as you go. Adapt and evolve your content
-                    calendar based on the feedback and preferences of your
-                    TikTok followers.
-                  </p>
+                  {response}
                 </div>
               </div>
             </div>

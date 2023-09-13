@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ClosedIcon } from "../../components/Icons";
 import { InputSend } from "../../components/InputSend/InputSend";
+import { MessageIA } from "../../components/MessageIA/MessageIA";
+import { MessageUser } from "../../components/MessageUser/MessageUser";
 import { ModalPay } from "../../components/ModalPay/ModalPay";
 import { ListSuggestionBox } from "../../layout/ListSuggestionBox/ListSuggestionBox";
 
@@ -36,8 +38,7 @@ const Home = () => {
                       strokeLinejoin="round"
                       className="h-4 w-4 shrink-0"
                       height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg">
+                      width="1em">
                       <line x1="12" y1="5" x2="12" y2="19"></line>
                       <line x1="5" y1="12" x2="19" y2="12"></line>
                     </svg>
@@ -77,8 +78,7 @@ const Home = () => {
                           strokeLinejoin="round"
                           className="h-4 w-4 shrink-0"
                           height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg">
+                          width="1em">
                           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                           <circle cx="12" cy="7" r="4"></circle>
                         </svg>
@@ -143,8 +143,7 @@ const Home = () => {
               strokeLinejoin="round"
               className="h-4 w-4 text-black dark:text-white"
               height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg">
+              width="1em">
               <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
               <line x1="9" y1="3" x2="9" y2="21"></line>
             </svg>
@@ -181,8 +180,8 @@ const Home = () => {
 
         <div className="w-full flex flex-col justify-between relative max-w-full flex-1">
           <div className="text-white flex flex-col text-sm dark:bg-gray-800">
-            {/* <MessageUser />
-            <MessageIA /> */}
+            <MessageUser message="lorem" />
+            <MessageIA response="lorem" />
           </div>
 
           <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference">

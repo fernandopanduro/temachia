@@ -2,7 +2,7 @@ import React from "react";
 
 interface Props {
   showModalPay: boolean;
-  setShowModalPay: boolean;
+  setShowModalPay: (arg0: boolean) => void;
 }
 
 export const ModalPay: React.FC<Props> = ({

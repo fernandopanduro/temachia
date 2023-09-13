@@ -1,6 +1,6 @@
 import { EditIcon } from "../Icons";
 
-export const MessageUser = () => {
+export const MessageUser = ({ message }: { message: string }) => {
   return (
     <div
       className="group w-full text-token-text-primary border-b border-black/10 dark:border-gray-900/50 dark:bg-gray-800"
@@ -27,10 +27,7 @@ export const MessageUser = () => {
           <div className="relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]">
             <div className="flex flex-grow flex-col gap-3 max-w-full">
               <div className="min-h-[20px] flex flex-col items-start gap-3 overflow-x-auto whitespace-pre-wrap break-words">
-                <div className="empty:hidden">
-                  Create a content calendar for a TikTok account on reviewing
-                  real estate listings.
-                </div>
+                <div className="empty:hidden">{message}</div>
               </div>
             </div>
             <div className="flex justify-between lg:block">
