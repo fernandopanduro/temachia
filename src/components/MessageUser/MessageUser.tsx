@@ -3,7 +3,7 @@ import { auth } from "../../utils/firebase";
 import { EditIcon } from "../Icons";
 
 export const MessageUser = ({ message }: { message: string }) => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const photo = user?.photoURL;
   return (
     <div
@@ -22,7 +22,7 @@ export const MessageUser = ({ message }: { message: string }) => {
                   decoding="async"
                   data-nimg="1"
                   className="rounded-sm"
-                  src={photo}
+                  src={photo ?? "null"}
                   style={{ color: "transparent" }}
                 />
               </div>

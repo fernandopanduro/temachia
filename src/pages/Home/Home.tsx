@@ -15,7 +15,7 @@ const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showModalPay, setShowModalPay] = useState(false);
 
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const photo = user?.photoURL;
   const username = user?.displayName;
@@ -26,7 +26,6 @@ const Home = () => {
     if (!user) {
       navigate("/auth/login");
     } else {
-      console.log(user);
     }
   }, [user]);
 
@@ -127,7 +126,7 @@ const Home = () => {
                               decoding="async"
                               data-nimg="1"
                               className="rounded-sm"
-                              src={photo}
+                              src={photo ?? "null"}
                             />
                           </div>
                         </div>
