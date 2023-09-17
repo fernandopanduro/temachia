@@ -41,16 +41,14 @@ export const Login = () => {
   const signIn = async () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        // Signed in
         const user = userCredential.user;
         console.log(user);
-        // ...
       })
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        toast.error("Credenciales incorractas");
+        toast.error("Credenciales incorrectas");
       });
   };
 
