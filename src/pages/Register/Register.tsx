@@ -1,7 +1,7 @@
 import {
   FacebookAuthProvider,
   GoogleAuthProvider,
-  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ import {
 } from "../../components/Icons";
 import { auth } from "../../utils/firebase";
 
-export const Login = () => {
+export const Register = () => {
   const facebookPrivider = new FacebookAuthProvider();
   const facebookLogin = async () => {
     try {
@@ -38,18 +38,11 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const signIn = async () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(userCredential => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        // ...
-      })
-      .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const [user] = useAuthState(auth);
@@ -65,13 +58,11 @@ export const Login = () => {
     <main className="flex justify-center items-center min-h-[100vh]">
       <div className="flex flex-col gap-6">
         <div>
-          <h1 className="font-bold text-center text-3xl">
-            Bienvenido de nuevo
-          </h1>
+          <h1 className="font-bold text-center text-3xl">Registrate Ahora</h1>
           <p>
-            No tienes cuenta?{" "}
-            <Link to={"/auth/register"} className="text-blue-800 font-bold">
-              Registrate
+            Ya tienes cuenta?{" "}
+            <Link to={"/auth/login"} className="text-blue-800 font-bold">
+              Inicia Sesión
             </Link>
           </p>
         </div>
@@ -102,7 +93,7 @@ export const Login = () => {
           <button
             onClick={signIn}
             className="p-2 bg-blue-500 text-white rounded-md font-medium hover:bg-blue-600 transition-colors">
-            Entra a tu cuenta
+            Registrar
           </button>
         </div>
 
