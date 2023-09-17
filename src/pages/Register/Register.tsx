@@ -59,11 +59,11 @@ export const Register = () => {
   return (
     <main className="flex justify-center items-center min-h-[100vh] w-full">
       <Toaster position="top-center" richColors />
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6  w-80 max-w-[90%]">
         <div>
-          <h1 className="font-bold text-center text-3xl">Registrate Ahora</h1>
+          <h1 className="font-bold text-left text-3xl">Registrate Ahora</h1>
           <p>
-            Ya tienes cuenta?{" "}
+            ¿Ya tienes cuenta?{" "}
             <Link to={"/auth/login"} className="text-blue-800 font-bold">
               Inicia Sesión
             </Link>

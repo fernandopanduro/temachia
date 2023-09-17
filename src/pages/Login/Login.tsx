@@ -66,13 +66,11 @@ export const Login = () => {
   return (
     <main className="flex justify-center items-center min-h-[100vh]">
       <Toaster position="top-center" richColors />
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 w-80 max-w-[90%]">
         <div>
-          <h1 className="font-bold text-center text-3xl">
-            Bienvenido de nuevo
-          </h1>
+          <h1 className="font-bold text-3xl text-left">Bienvenido de nuevo</h1>
           <p>
-            No tienes cuenta?{" "}
+            ¿No tienes cuenta?{" "}
             <Link to={"/auth/register"} className="text-blue-800 font-bold">
               Registrate
             </Link>
