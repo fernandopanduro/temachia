@@ -135,7 +135,7 @@ export const ModalPay: React.FC<Props> = ({
                           <div className="text-xl font-semibold justify-between items-center flex">
                             TemachIA Plus
                             <span className="font-semibold text-gray-500">
-                              USD $3/mo
+                              USD $9/mo
                             </span>
                           </div>
                           <button className="btn relative btn-primary border-none py-3 font-semibold hover:bg-emerald-900 transition-colors">
