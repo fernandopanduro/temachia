@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { Toaster, toast } from "sonner";
 import {
   FacebookIcon,
   GoogleIcon,
@@ -41,6 +42,7 @@ export const Register = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
     } catch (err) {
+      toast.error("El usuario ya esta registrado");
       console.error(err);
     }
   };
@@ -55,7 +57,8 @@ export const Register = () => {
   }, [user]);
 
   return (
-    <main className="flex justify-center items-center min-h-[100vh]">
+    <main className="flex justify-center items-center min-h-[100vh] w-full">
+      <Toaster position="top-center" richColors />
       <div className="flex flex-col gap-6">
         <div>
           <h1 className="font-bold text-center text-3xl">Registrate Ahora</h1>

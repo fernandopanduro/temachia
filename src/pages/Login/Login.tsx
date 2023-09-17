@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { Toaster, toast } from "sonner";
 import {
   FacebookIcon,
   GoogleIcon,
@@ -49,6 +50,7 @@ export const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        toast.error("Credenciales incorractas");
       });
   };
 
@@ -63,6 +65,7 @@ export const Login = () => {
 
   return (
     <main className="flex justify-center items-center min-h-[100vh]">
+      <Toaster position="top-center" richColors />
       <div className="flex flex-col gap-6">
         <div>
           <h1 className="font-bold text-center text-3xl">
