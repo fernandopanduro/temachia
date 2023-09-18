@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { ClosedIcon } from "../../components/Icons";
@@ -6,12 +6,12 @@ import { InputSend } from "../../components/InputSend/InputSend";
 import { MessageIA } from "../../components/MessageIA/MessageIA";
 import { MessageUser } from "../../components/MessageUser/MessageUser";
 import { ModalPay } from "../../components/ModalPay/ModalPay";
+import { MessageContext } from "../../context/MessageContext";
 import { ListSuggestionBox } from "../../layout/ListSuggestionBox/ListSuggestionBox";
 import { auth } from "../../utils/firebase";
 
 const Home = () => {
-  const isMessage = false;
-
+  const dummy = useRef();
   const [showMenu, setShowMenu] = useState(false);
   const [showModalPay, setShowModalPay] = useState(false);
 
@@ -28,6 +28,15 @@ const Home = () => {
     } else {
     }
   }, [user]);
+
+  const messageContext = useContext(MessageContext);
+  if (!messageContext) return null;
+  const { listOfMessages } = messageContext;
+
+  useEffect(() => {
+    if (dummy.current === undefined) return;
+    dummy.current.scrollIntoView({ behavior: "smooth" });
+  }, [listOfMessages]);
 
   return (
     <div className="w-full min-h-[100vh] relative flex z-0 bg-gray-800">
@@ -219,16 +228,21 @@ const Home = () => {
 
         <div className="w-full flex flex-col justify-between relative max-w-full flex-1">
           <div className="text-white flex flex-col text-sm dark:bg-gray-800">
-            <MessageUser message="lorem" />
-            <MessageIA response="lorem" />
+            {listOfMessages.map((message, index) => {
+              return message.remitente === "user" ? (
+                <MessageUser key={index} message={message.text} />
+              ) : (
+                <MessageIA key={index} response={message.text} />
+              );
+            })}
           </div>
 
           <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference">
             Temach IA
           </h1>
 
-          <div className="py-3 md:py-5 h-auto">
-            {isMessage ? "" : <ListSuggestionBox />}
+          <div className="py-3 md:py-5 h-auto" ref={dummy}>
+            {listOfMessages.length > 0 ? "" : <ListSuggestionBox />}
             <InputSend />
           </div>
         </div>
