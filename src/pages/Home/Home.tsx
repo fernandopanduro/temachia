@@ -237,7 +237,7 @@ const Home = () => {
             })}
           </div>
 
-          <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference">
+          <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference select-none	">
             Temach IA
           </h1>
 

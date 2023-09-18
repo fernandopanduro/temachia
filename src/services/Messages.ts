@@ -9,6 +9,7 @@ export async function temach(text: string) {
   const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     temperature: 0.5,
+    // stream: true,
     messages: [
       {
         role: "assistant",

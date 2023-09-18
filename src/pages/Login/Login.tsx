@@ -1,56 +1,18 @@
-import {
-  FacebookAuthProvider,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
 import {
   FacebookIcon,
   GoogleIcon,
   MicrosoftIcon,
 } from "../../components/Icons";
+import { facebookLogin, googleLogin, signInbyEmail } from "../../services/Auth";
 import { auth } from "../../utils/firebase";
 
 export const Login = () => {
-  const facebookPrivider = new FacebookAuthProvider();
-  const facebookLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, facebookPrivider);
-      console.log(result);
-    } catch (err) {
-      console.log("error:", err);
-    }
-  };
-
-  const googlePrivider = new GoogleAuthProvider();
-  const googleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, googlePrivider);
-      console.log(result);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const signIn = async () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(userCredential => {
-        const user = userCredential.user;
-        console.log(user);
-      })
-      .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        toast.error("Credenciales incorrectas");
-      });
-  };
 
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
@@ -99,7 +61,7 @@ export const Login = () => {
             />
           </div>
           <button
-            onClick={signIn}
+            onClick={() => signInbyEmail(email, password)}
             className="p-2 bg-blue-500 text-white rounded-md font-medium hover:bg-blue-600 transition-colors">
             Entra a tu cuenta
           </button>

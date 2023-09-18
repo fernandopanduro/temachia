@@ -1,51 +1,22 @@
-import {
-  FacebookAuthProvider,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
 import {
   FacebookIcon,
   GoogleIcon,
   MicrosoftIcon,
 } from "../../components/Icons";
+import {
+  createUserByEmail,
+  facebookLogin,
+  googleLogin,
+} from "../../services/Auth";
 import { auth } from "../../utils/firebase";
 
 export const Register = () => {
-  const facebookPrivider = new FacebookAuthProvider();
-  const facebookLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, facebookPrivider);
-      console.log(result);
-    } catch (err) {
-      console.log("error:", err);
-    }
-  };
-
-  const googlePrivider = new GoogleAuthProvider();
-  const googleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, googlePrivider);
-      console.log(result);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const signIn = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      toast.error("El usuario ya esta registrado");
-      console.error(err);
-    }
-  };
 
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
@@ -94,7 +65,7 @@ export const Register = () => {
             />
           </div>
           <button
-            onClick={signIn}
+            onClick={() => createUserByEmail(email, password)}
             className="p-2 bg-blue-500 text-white rounded-md font-medium hover:bg-blue-600 transition-colors">
             Registrar
           </button>
