@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import avatar from "../../assets/images/avatar.jpg";
 import { ClosedIcon } from "../../components/Icons";
 import { InputSend } from "../../components/InputSend/InputSend";
 import { MessageIA } from "../../components/MessageIA/MessageIA";
@@ -133,15 +134,17 @@ const Home = () => {
                               width="36"
                               height="36"
                               decoding="async"
-                              data-nimg="1"
                               className="rounded-sm"
-                              src={photo ?? "null"}
+                              src={photo ? photo : avatar}
+                              style={{ color: "transparent" }}
                             />
                           </div>
                         </div>
                       </div>
                       <div className="grow overflow-hidden text-ellipsis whitespace-nowrap text-left text-white">
-                        <div className="font-bold">{username}</div>
+                        <div className="font-bold">
+                          {username ?? (user && user.reloadUserInfo?.email)}
+                        </div>
                         <div className="text-xs text-gray-500"></div>
                       </div>
                     </button>
@@ -237,7 +240,7 @@ const Home = () => {
             })}
           </div>
 
-          <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference select-none	">
+          <h1 className="uppercase absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-4xl font-bold text-white/20 mix-blend-difference select-none w-[max-content]">
             Temach IA
           </h1>
 

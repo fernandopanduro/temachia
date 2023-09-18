@@ -1,4 +1,5 @@
 import { useAuthState } from "react-firebase-hooks/auth";
+import avatar from "../../assets/images/avatar.jpg";
 import { auth } from "../../utils/firebase";
 import { EditIcon } from "../Icons";
 
@@ -20,9 +21,8 @@ export const MessageUser = ({ message }: { message: string }) => {
                   width="36"
                   height="36"
                   decoding="async"
-                  data-nimg="1"
                   className="rounded-sm"
-                  src={photo ?? "null"}
+                  src={photo ? photo : avatar}
                   style={{ color: "transparent" }}
                 />
               </div>
