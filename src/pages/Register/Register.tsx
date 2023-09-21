@@ -3,14 +3,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import {
-  FacebookIcon,
-  GoogleIcon,
-  MicrosoftIcon,
+  GoogleIcon
 } from "../../components/Icons";
 import {
   createUserByEmail,
-  facebookLogin,
-  googleLogin,
+  googleLogin
 } from "../../services/Auth";
 import { auth } from "../../utils/firebase";
 
@@ -84,7 +81,7 @@ export const Register = () => {
             <GoogleIcon />{" "}
             <span className="text-base font-medium">Continuar con Google</span>
           </button>
-          <button
+         {/*  <button
             className="flex items-center justify-start gap-3 px-3 py-3 rounded-sm border border-black/20 w-full transition-colors hover:bg-black/10"
             onClick={() => facebookLogin()}>
             <FacebookIcon />{" "}
@@ -99,7 +96,7 @@ export const Register = () => {
             <span className="text-base font-medium">
               Continuar con Microsoft
             </span>
-          </button>
+          </button> */}
         </div>
       </div>
     </main>
