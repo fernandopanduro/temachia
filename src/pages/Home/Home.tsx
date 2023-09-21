@@ -12,7 +12,6 @@ import { ListSuggestionBox } from "../../layout/ListSuggestionBox/ListSuggestion
 import { auth } from "../../utils/firebase";
 
 const Home = () => {
-  const dummy = useRef();
   const [showMenu, setShowMenu] = useState(false);
   const [showModalPay, setShowModalPay] = useState(false);
 
@@ -34,10 +33,16 @@ const Home = () => {
   if (!messageContext) return null;
   const { listOfMessages } = messageContext;
 
+  const dummy = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    if (dummy.current === undefined) return;
-    dummy.current.scrollIntoView({ behavior: "smooth" });
+    if (dummy.current !== null) {
+      dummy.current.scrollIntoView({ behavior: "smooth" });
+    }
   }, [listOfMessages]);
+
+  // @ts-ignore
+  const result = username ?? (user && user.reloadUserInfo?.email);
 
   return (
     <div className="w-full min-h-[100vh] relative flex z-0 bg-gray-800">
@@ -142,9 +147,7 @@ const Home = () => {
                         </div>
                       </div>
                       <div className="grow overflow-hidden text-ellipsis whitespace-nowrap text-left text-white">
-                        <div className="font-bold">
-                          {username ?? (user && user.reloadUserInfo?.email)}
-                        </div>
+                        <div className="font-bold">{result}</div>
                         <div className="text-xs text-gray-500"></div>
                       </div>
                     </button>
